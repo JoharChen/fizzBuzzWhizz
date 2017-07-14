@@ -1,45 +1,18 @@
 'use strict';
 
 function fizzBuzzWhizz(num) {
-
+    var flag = false;
+    var str= '';
     if (num.toString().indexOf('3') >= 0) {
-        return 'fizz';
+        str = 'fizz';
+        flag = true;
+    } else
+    {
+        if(num%3==0){str+='fizz'; flag = true; }
+        if(num%5==0){str+='buzz'; flag = true;}
+        if(num%7==0){str+='whizz';flag = true; }
     }
-
-    else if (num % 3 == 0 && num % 5 !== 0 && num % 7 != 0) {
-        return 'fizz';
-    }
-
-    else if (num % 5 == 0 && num % 3 !== 0 && num % 7 != 0) {
-        return 'buzz';
-    }
-
-    else if (num % 7 == 0 && num % 5 !== 0 && num % 3 != 0) {
-        return 'whizz';
-    }
-
-    else if (num % 3 == 0 && num % 5 == 0 && num % 7 != 0) {
-        return 'fizzbuzz';
-    }
-
-    else if (num % 3 == 0 && num % 5 != 0 && num % 7 == 0) {
-        return 'fizzwhizz';
-    }
-
-    else if (num % 3 != 0 && num % 5 == 0 && num % 7 == 0) {
-        return 'buzzwhizz';
-    }
-
-    else if (num % 3 == 0 && num % 5 == 0 && num % 7 == 0) {
-        return 'fizzbuzzwhizz';
-    }
-
-    else {
-        return num.toString();
-    }
-}
-
-for(let i=0; i<100; i++){
-    console.log(fizzBuzzWhizz(i)+'\n');
+    if(flag==false) {str+=num;}
+    return str;
 }
 
